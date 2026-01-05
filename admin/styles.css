@@ -1,0 +1,185 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f5f5f5;
+}
+
+/* HEADER */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 60px;
+  background: #ffffff;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  z-index: 10;
+}
+
+header h1 {
+  font-size: 20px;
+}
+
+.header-buttons button {
+  margin-left: 12px;
+  padding: 8px 14px;
+  border: none;
+  border-radius: 6px;
+  background: #1976d2;
+  color: white;
+  cursor: pointer;
+}
+
+/* CONTENT */
+.content {
+  padding-top: 70px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* SESSION LIST */
+#sessionsContainer {
+  transition: max-height 0.4s ease;
+  max-height: 600px;
+  overflow: hidden;
+}
+
+#sessionsList {
+  background: white;
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.session-item {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+.sessions-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.sessions-table th,
+.sessions-table td {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+  text-align: left;
+  font-size: 14px;
+}
+
+.sessions-table th {
+  background: #f0f0f0;
+  font-weight: bold;
+}
+
+.sessions-table tbody tr {
+  transition: 
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    background-color 0.2s ease;
+  cursor: pointer;
+  position: relative;
+}
+
+.sessions-table tbody tr:hover {
+  transform: scale(1.015);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+  background-color: #fafafa;
+  z-index: 10;
+}
+
+.status {
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.status.draft { background: #e0e0e0; }
+.status.waiting { background: #fff3cd; }
+.status.raw_ready { background: #d1ecf1; }
+.status.editing { background: #cce5ff; }
+.status.edited { background: #d4edda; }
+.status.completed { background: #c3e6cb; }
+
+/* Edit FORM */
+.editor {
+  margin-bottom: 20px;
+  padding: 20px;
+  border-radius: 12px;
+  background: #fff;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.editor-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.editor-table td {
+  padding: 10px;
+  vertical-align: top;
+}
+
+.editor-table label {
+  display: block;
+  font-size: 12px;
+  margin-bottom: 4px;
+  opacity: 0.7;
+}
+
+.editor-actions {
+  margin-top: 20px;
+  display: flex;
+  gap: 12px;
+}
+
+.hidden {
+  display: none;
+}
+
+/* CREATE FORM */
+#createSessionSection {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+label {
+  display: block;
+  margin-top: 12px;
+  font-weight: bold;
+}
+
+input, select, textarea {
+  width: 100%;
+  padding: 8px;
+  margin-top: 6px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.radio-group {
+  margin-top: 6px;
+}
+
+.radio-group label {
+  display: inline-block;
+  margin-right: 20px;
+}
+
+.submit-btn {
+  margin-top: 15px;
+  padding: 10px 18px;
+  background: #2e7d32;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}

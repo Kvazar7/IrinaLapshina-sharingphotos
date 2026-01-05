@@ -1,0 +1,52 @@
+# .gitignore — Node.js project + project-specific rules
+
+# Node modules
+node_modules/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+*.log
+
+# Environment files
+.env
+.env.local
+.env.*
+
+# Uploaded user files (do not commit large binaries or user content)
+uploads/
+# If you want to keep the "uploads" folder structure in git, add a .gitkeep file inside it and remove it from this ignore list.
+
+# Build / output
+dist/
+build/
+coverage/
+.nyc_output/
+.cache/
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor / IDE
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+
+# Certificates / keys
+*.pem
+*.key
+*.crt
+
+# Temporary files
+*.tmp
+*.bak
+*.swp
+
+# Misc
+.eslintcache

@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Панель керування фотосесіями</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<header>
+  <h1>Керування фотосесіями</h1>
+  <div class="header-buttons">
+    <button id="toggleListBtn">Приховати фотосесії</button>
+    <button id="scrollToCreateBtn">Створити фотосесію</button>
+  </div>
+</header>
+
+<div class="content">
+
+  <div id="sessionsContainer">
+    <div id="sessionsList">
+      <table class="sessions-table">
+        <thead>
+          <tr>
+            <th>Імʼя</th>
+            <th>Дата</th>
+            <th>Вид</th>
+            <th>Статус</th>
+          </tr>
+        </thead>
+        <tbody id="sessionsTableBody">
+          <!-- Рядки фотосесій будуть динамічно додаватися сюди -->
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div id="sessionEditor" class="editor hidden">
+    <h2>Фотосесія</h2>
+
+    <form id="editorForm">
+      <table class="editor-table">
+        <tr>
+          <td>
+            <label>Імена</label>
+            <input name="clientNames" disabled>
+          </td>
+          <td>
+            <label>Дата</label>
+            <input type="date" name="sessionDate" disabled>
+          </td>
+          <td>
+            <label>Вид</label>
+            <select name="sessionType" disabled>
+              <option value="">Обрати зі списку</option>
+              <option value="Newborn">Newborn</option>
+              <option value="3 month">3 month</option>
+              <option value="1 year">1 year</option>
+              <option value="Family">Family</option>
+              <option value="Pregnant">Pregnant</option>
+              <option value="Custom">Свій варіант</option>
+            </select>
+          </td>
+          <td>
+            <label>Статус</label>
+            <select name="status" disabled></select>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <label>Телефон</label>
+            <input name="phone" disabled>
+          </td>
+          <td>
+            <label>Тип фотосесії</label>
+            <select name="orderType" disabled>
+              <option value="gift">Подарунковий сертифікат</option>
+              <option value="personal">Для себе</option>
+            </select>
+          </td>
+          <td>
+            <label>Кількість фото</label>
+            <input name="photoCount" type="number" disabled>
+          </td>
+          <td>
+            <label>Публікація</label>
+            <select name="allowPublish" disabled>
+              <option value="true">Так</option>
+              <option value="false">Ні</option>
+              <option value="false">Після христин</option>
+            </select>
+          </td>
+        </tr>
+
+        <tr>
+          <td colspan="4">
+            <label>Коментар</label>
+            <textarea name="comment" disabled placeholder="Відсутній"></textarea>
+          </td>
+        </tr>
+      </table>
+
+      <div class="editor-actions">
+        <button type="button" id="editBtn">Редагувати дані</button>
+        <button type="submit" id="saveBtn" disabled>Зберегти зміни</button>
+      </div>
+    </form>
+  </div>
+
+  <section id="createSessionSection">
+  <h2>Створити нову фотосесію</h2>
+
+  <form id="orderForm">
+
+    <label>Імена замовника і моделей</label>
+    <input
+      type="text"
+      name="clientNames"
+      placeholder="Наприклад: Анна, Олег, Марія"
+      required
+    />
+
+    <label>Контактний телефон</label>
+    <input
+      type="tel"
+      name="phone"
+      placeholder="+380..."
+      required
+    />
+
+    <label>Вид фотосесії</label>
+    <select id="sessionTypeSelect" name="sessionType" required>
+      <option value="">Обрати зі списку</option>
+      <option value="Newborn">Newborn</option>
+      <option value="3 month">3 month</option>
+      <option value="1 year">1 year</option>
+      <option value="Family">Family</option>
+      <option value="Pregnant">Pregnant</option>
+      <option value="Custom">Свій варіант</option>
+    </select>
+
+    <input
+      type="text"
+      id="customSessionType"
+      placeholder="Свій варіант"
+      style="display:none"
+    />
+
+    <label>Тип замовлення</label>
+    <div class="radio-group">
+      <label>
+        <input type="radio" name="orderType" value="gift">
+        Подарунковий сертифікат
+      </label>
+
+      <label>
+        <input type="radio" name="orderType" value="personal" checked>
+        Для себе
+      </label>
+    </div>
+
+    <label>Дата проведення фотосесії</label>
+    <input type="date" name="sessionDate" />
+
+    <label>Кількість фото</label>
+    <input
+      type="number"
+      name="photoCount"
+      min="1"
+      placeholder="Наприклад: 10"
+    />
+
+    <label>Можливість публікації</label>
+    <div class="radio-group">
+      <label>
+        <input type="radio" name="publishPermission" value="yes">
+        Можна
+      </label>
+
+      <label>
+        <input type="radio" name="publishPermission" value="no" checked>
+        Не можна
+      </label>
+
+      <label>
+        <input type="radio" name="publishPermission" value="after_christening">
+        Після христин
+      </label>
+    </div>
+
+    <label>Коментарі</label>
+    <textarea name="comments" rows="4"></textarea>
+
+    <button type="submit" class="submit-btn">
+      Створити
+    </button>
+
+  </form>
+  </section>
+
+<!-- ✅ Контейнер для карток -->
+<div id="ordersList"></div>
+
+</div>
+
+<script src="script.js"></script>
+<script src="orderForm.js"></script>
+</body>
+</html>
+
